@@ -40,6 +40,10 @@ and the message content is like the following
 ```
 The first cell of the message contains the UTC time(2024-06-06 22:34:42.803736+00:00) of the search and the keyword(mac address C8215D576D60) that was searched. The rest of the cells contain the information of search reult. The first string is the name of search engine such as 'shodan' or 'zoomeye'. The True or False boolean in the following cell states if any results have been find or not. The next value is a 0 or 1 which is the error code. if the error code is 0 it means that the agent has successfully connected to the mentioned engines and MQTT broker, however, if the error code is 1 it means that there has been an error either connecting the MQTT server or querying the search engines. 
 
+
+## Running the docker file
+first edit the config file as needed.
+
 ### config file
 there is a config file located in the 
 ```
@@ -60,4 +64,9 @@ publish_mac_interval = 3600 #in seconds
 publish_mac_interval_if_network_error = 10 #in seconds
 Search_engine_check_interval = 20 # in seconds
 ```
+second, go to the ```/docker_based``` folder and run the following command 
+```
+docker-compose up --build -d 
+```
+
 
