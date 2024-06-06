@@ -1,0 +1,20 @@
+version: '3'
+
+
+services:
+  mqtt_mac_publisher:
+    build: 
+      context: ./
+      dockerfile: ./mac_publisher/Dockerfile
+    container_name: mac_publisher
+
+  mqtt_search_engine_crawler:
+    build: 
+      context: ./
+      dockerfile: ./search_engine_crawler/Dockerfile
+    container_name: engine_crawler
+
+networks:
+  host:
+    name: host
+    external: true
