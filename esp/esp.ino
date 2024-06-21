@@ -10,8 +10,8 @@ const char * MY_MAC_ADDRESS  = "C8215D576D60";
 
 
 // WiFi
-const char* ssid = "MyOptimum df8b8f";
-const char* password = "7818-cobalt-49";
+const char* ssid = "Mywifi";
+const char* password = "mypassword";
 
 // MQTT Broker
 const char *mqtt_broker = "192.168.1.90";
