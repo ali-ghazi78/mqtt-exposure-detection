@@ -7,8 +7,9 @@ We create a publisher client that publishes the MAC address of your pc to the br
 # implementations
 We have 3 different implementations
 1. [docker based client](#docker-based-agent) 
-2. docker based client embedded in an EQMX docker-compose 
-3. ESP32 based 
+2. [ESP32 based](#esp32-agent)
+3. [docker based client embedded in an EQMX docker-compose](#agent-within-broker)
+
 
 # docker based agent
 Our system consists of two parts:
@@ -70,3 +71,31 @@ docker-compose up --build -d
 ```
 
 
+# ESP32 Agent
+since some IoT systems do not have any PC involved and the broker is run on an ESP32 microcontroller, we implemented the same functionallity for the ESP32 as well. 
+First you need to go to the ```esp``` folder and then upload the code unsing arduino enviornment to the ESP32 device. For this project we used an ```ESP32_DEVKITC_V4```.
+Please note that you must setup the configurations in the begineing of the code. You must obtain and put your mac address in the MY_MAC_ADDRESS field. please note that for the ESP32 code, we do not send the time to the broker since accurate timing needs NTP server which some IoT systems might not have this option available. 
+```
+////================================= configuration ==============================
+// MAC ADDRESS
+const char * MY_MAC_ADDRESS  = "C8215D576D60";
+
+
+// WiFi
+const char* ssid = "Mywifi";
+const char* password = "mypassword";
+
+// MQTT Broker
+const char *mqtt_broker = "192.168.1.90";
+const char *broker_username  = "";
+const char *broker_password  = "";
+const int mqtt_port = 1883;
+bool authentication_required = false;
+int check_interval=10; // in seconds 
+
+////================================= configuration ==============================
+```
+The output format of the ESP32 agent is just like the output format of the previous part.
+
+# Agent within broker
+In case you want to have this exposure detection system along your MQTT broker, we also prepared a docker-compose file that runs the MQTT server and our code in a single docker-compose file for ease of use. Please note that you still need to set the IP address and other configurations in the config file for the exposure detection code.

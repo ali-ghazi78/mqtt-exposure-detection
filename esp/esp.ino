@@ -19,13 +19,12 @@ const char *broker_username  = "";
 const char *broker_password  = "";
 const int mqtt_port = 1883;
 bool authentication_required = false;
-const char * topic_mac= "MAC_ADDRESS";
-const char * topic_expose_status= "expose_status";
-
 int check_interval=10; // in seconds 
 
 ////================================= configuration ==============================
 
+const char * topic_mac= "MAC_ADDRESS";
+const char * topic_expose_status= "expose_status";
   
 
 enum DebugLevel{
