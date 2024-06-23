@@ -99,3 +99,8 @@ The output format of the ESP32 agent is just like the output format of the previ
 
 # Agent within broker
 In case you want to have this exposure detection system along your MQTT broker, we also prepared a docker-compose file that runs the MQTT server and our code in a single docker-compose file for ease of use. Please note that you still need to set the IP address and other configurations in the config file for the exposure detection code.
+To use this code you need to firt go to the ```docker_based``` folder and then run the following command
+```
+docker-compose -f  docker-compose-with-broker.yml up --build
+```
+
