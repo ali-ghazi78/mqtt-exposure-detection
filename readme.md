@@ -1,3 +1,10 @@
+# Cite this work? 
+```
+@inproceedings{asgar2025analysis,
+  title={Analysis of Misconfigured IoT MQTT Deployments and a Lightweight Exposure Detection System},
+  author={Asgar, Seyed Ali Ghazi and Reddy, Narasimha}
+}
+```
 # What is this repo? 
 This repository searches on search engines like shodan and zoomeye to check if your MQTT server is exposed or not 
 
